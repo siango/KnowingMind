@@ -1,21 +1,51 @@
-# KnowingMind
+# KnowingMind / รู้แจ้งใจ
 
-Open-source Dhamma Grounded AI — SOURCE > MODEL.
+**Open-source Dhamma Grounded AI — SOURCE > MODEL**
 
-KnowingMind is the public collaboration repository for community-facing code and documentation.
+KnowingMind is the public collaboration repository for community-facing code,
+documentation, tests, and public-safe demos. It is intentionally separated from
+private production runtime, credentials, private evidence, user practice data,
+and non-redistributable source material.
 
 ## Principles
 
-- SOURCE > MODEL.
-- Keep sources, interpretation, and AI analysis clearly separated.
+- **SOURCE > MODEL**
+- AI is not Canon and is not a spiritual authority.
+- Keep Canon, Library, Practice, and AI Analysis distinguishable.
 - Preserve provenance and citations.
-- Do not publish secrets, credentials, private user data, private evidence, or production configuration.
-- Public contributions should be reviewable and reproducible from this repository.
+- Do not publish secrets, private user/payment/practice data, or private runtime details.
+- Public contributions must be reviewable and reproducible from this repository.
+
+## Start here
+
+- Public demo: `examples/public-demo/`
+- Roadmap: `ROADMAP.md`
+- Contributing: `CONTRIBUTING.md`
+- Security policy: `SECURITY.md`
+- Governance: `GOVERNANCE.md`
+
+Run the public-safe demo locally:
+
+```bash
+python examples/public-demo/app.py --check
+python -m unittest discover -s examples/public-demo -p 'test_*.py'
+python examples/public-demo/app.py --port 8765
+```
 
 ## Contributing
 
-Contributions are welcome through Issues and Pull Requests.
+Issues and Pull Requests are welcome. Good first contributions include
+documentation, accessibility, localization, tests, provenance/citation tooling,
+and public-safe developer experience improvements.
 
 Website: https://knowingmind.app/
 
-Project-owned software released here follows the project licensing policy. Third-party works remain under their own licenses.
+GitHub: https://github.com/siango/KnowingMind
+
+Support server and AI service costs:
+https://donate.stripe.com/dRm7sFa4VgVz1mCgbncfK0b
+
+Project-owned software released here follows the project licensing policy.
+Third-party works remain under their own licenses.
+
+**แบ่งเวลา • แบ่งความรู้ • แบ่งบุญ • แบ่งทรัพยากร**
