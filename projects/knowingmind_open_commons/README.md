@@ -50,7 +50,7 @@ A future public repository should be generated from a sanitized, reviewed source
 - i18n/I18N_POLICY_V1.md — Thai/English/Simplified Chinese policy
 - security/SECURITY_PRIVACY_V1.md — secret/privacy controls
 - release/GITHUB_PUBLICATION_V1.md — public GitHub plan
-- release/LICENSE_DECISION_RECORD_V1.md — proposed licensing, still human-gated
+- release/LICENSE_DECISION_RECORD_V1.md — approved Apache-2.0/CC-BY-4.0 model for project-owned material in the exact PUBLIC manifest; publication remains separately gated
 - release/RELEASE_GATES_V1.md — mandatory go-live gates
 - release/PUBLIC_SOURCE_MANIFEST_TEMPLATE_V1.json — fail-closed public file-classification manifest
 - schemas/DATA_MODEL_V1.md — identity/community/funding/i18n data domains

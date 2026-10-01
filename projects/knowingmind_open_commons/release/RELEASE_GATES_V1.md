@@ -71,7 +71,10 @@ PASS when:
 PASS when:
 - Stripe sandbox Checkout succeeds,
 - webhook signature verification passes,
-- duplicate webhook does not duplicate ledger effects,
+- replaying the same webhook event ID produces one ledger effect,
+- distinct `refund.created` and `refund.updated` event IDs for the same refund object and `succeeded` transition produce one adjustment,
+- distinct dispute event IDs for the same dispute object and terminal `lost` transition produce one adjustment,
+- a synthetic cumulative-cap test (for example, a 1,000-minor-unit payment with a 400-unit refund and overlapping 1,000-unit dispute-loss events) proves total support/points reversal never exceeds the original credited amount or occurs twice,
 - failed/async payment paths behave correctly,
 - ledger reconciliation passes.
 

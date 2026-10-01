@@ -1,7 +1,7 @@
 name: Public CI
 on:
   push:
-    branches: [main, oc0-public-import-v1]
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -42,12 +42,15 @@ jobs:
               if mode in {"120000","160000"}:
                   raise SystemExit("symlink/submodule forbidden: "+line)
           blocked={".env",".env.local",".env.production"}
-          blocked_suffix={".pem",".key",".p12",".pfx",".zip",".7z",".tar",".gz"}
+          blocked_suffix={".pem",".key",".p12",".pfx",".zip",".7z",".tar",".gz",".pdf"}
           patterns=[
               re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
               re.compile(r"\bghp_[A-Za-z0-9]{20,}\b"),
               re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
               re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
+              re.compile(r"\b[rs]k_live_[A-Za-z0-9]{12,}\b"),
+              re.compile(r"\bwhsec_[A-Za-z0-9]{16,}\b"),
+              re.compile(r"\bsk-proj-[A-Za-z0-9_-]{20,}\b"),
           ]
           text_ext={".md",".json",".yml",".yaml",".py",".js",".ts",".tsx",".jsx",".txt",".toml",".ini",".cfg",".sh"}
           for p in sorted(tracked):
@@ -56,7 +59,7 @@ jobs:
                   raise SystemExit("blocked public file type: "+p)
               if pp.suffix.lower()==".json":
                   json.loads(pp.read_text(encoding="utf-8"))
-              if pp.suffix.lower() in text_ext or pp.name in {"LICENSE","NOTICE"}:
+              if pp.suffix.lower() in text_ext or pp.name in {"LICENSE","NOTICE","CODEOWNERS"}:
                   data=pp.read_text(encoding="utf-8")
                   for pat in patterns:
                       if pat.search(data):
@@ -74,4 +77,6 @@ jobs:
           test -f PUBLIC_SOURCE_MANIFEST.json
           python -m json.tool PUBLIC_SOURCE_MANIFEST.json >/dev/null
           python -m json.tool PUBLIC_ALLOWLIST.json >/dev/null
+          python examples/public-demo/app.py --check
+          python -m unittest discover -s examples/public-demo -p 'test_*.py'
           echo PUBLIC_CLEAN_CHECKOUT_TEST_PASS

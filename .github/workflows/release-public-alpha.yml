@@ -1,0 +1,36 @@
+name: Release Public Alpha
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'examples/public-demo/**'
+      - 'README.md'
+      - 'PUBLIC_SOURCE_MANIFEST.json'
+      - '.github/workflows/release-public-alpha.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify public demo
+        run: |
+          set -euo pipefail
+          python examples/public-demo/app.py --check
+          python -m unittest discover -s examples/public-demo -p 'test_*.py'
+
+      - name: Create v0.1.0 public alpha release once
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view v0.1.0-public-alpha >/dev/null 2>&1; then
+            echo "Release already exists"
+            exit 0
+          fi
+          gh release create v0.1.0-public-alpha             --target "${GITHUB_SHA}"             --title "KnowingMind v0.1.0-public-alpha"             --notes "Public alpha of the KnowingMind Open Commons collaboration repository. SOURCE > MODEL. Public-safe source/docs/demo only; no private production runtime, credentials, user data, or private evidence are included."

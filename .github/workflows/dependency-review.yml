@@ -1,0 +1,53 @@
+name: Dependency Policy
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fail closed on unreviewed dependency manifests
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import pathlib, sys
+
+          tracked = {
+              "requirements.txt",
+              "requirements-dev.txt",
+              "pyproject.toml",
+              "poetry.lock",
+              "uv.lock",
+              "package.json",
+              "package-lock.json",
+              "pnpm-lock.yaml",
+              "yarn.lock",
+              "Pipfile",
+              "Pipfile.lock",
+          }
+
+          found = []
+          for p in pathlib.Path(".").rglob("*"):
+              if p.is_file() and p.name in tracked:
+                  found.append(p.as_posix())
+
+          # This public-alpha repository currently has a stdlib-only demo.
+          # Introducing a package/dependency manifest requires a dedicated
+          # reviewed change to this policy and the public boundary.
+          if found:
+              raise SystemExit(
+                  "UNREVIEWED_DEPENDENCY_MANIFESTS: " + ", ".join(sorted(found))
+              )
+
+          print("DEPENDENCY_POLICY_PASS: stdlib-only public baseline")
+          PY
