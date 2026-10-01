@@ -1,0 +1,45 @@
+{
+  "schema": "KNOWINGMIND_PUBLIC_SOURCE_MANIFEST_V1",
+  "source_repository": "siango/KnowingMindApp",
+  "source_manifest_path": "projects/knowingmind_open_commons/release/PUBLIC_SOURCE_MANIFEST_CANDIDATE_V1.json",
+  "source_manifest_blob_sha": "7d32cb9b32654d37343560a93ffe6b9830491363",
+  "classified_snapshot": {
+    "ref": "feat/knowingmind-open-commons-roadmap-v1",
+    "commit": "304b3fd840df7362cda2e1274405283f115c3c77",
+    "tree": "e60a788a90086e9d68923fbc69cb9f59587e9ccc"
+  },
+  "imported_count": 24,
+  "imported_paths": [
+    "CODE_OF_CONDUCT.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "SECURITY.md",
+    "projects/knowingmind_open_commons/PHASES_V1.json",
+    "projects/knowingmind_open_commons/PROJECT_CHARTER_V1.md",
+    "projects/knowingmind_open_commons/README.md",
+    "projects/knowingmind_open_commons/ROADMAP_PUBLIC_V1.md",
+    "projects/knowingmind_open_commons/STATUS_V1.json",
+    "projects/knowingmind_open_commons/architecture/ARCHITECTURE_V1.md",
+    "projects/knowingmind_open_commons/architecture/PUBLIC_PRIVATE_BOUNDARY_V1.md",
+    "projects/knowingmind_open_commons/funding/STRIPE_AND_SUSTAINABILITY_V1.md",
+    "projects/knowingmind_open_commons/governance/CONTRIBUTION_POINTS_POLICY_V1.md",
+    "projects/knowingmind_open_commons/governance/DECISION_LOG_V1.md",
+    "projects/knowingmind_open_commons/governance/GOVERNANCE_V1.md",
+    "projects/knowingmind_open_commons/i18n/I18N_POLICY_V1.md",
+    "projects/knowingmind_open_commons/identity/MEMBERSHIP_V1.md",
+    "projects/knowingmind_open_commons/operations/FASTAPI_GITHUB_STRIPE_INTEGRATION_V1.md",
+    "projects/knowingmind_open_commons/release/GITHUB_PUBLICATION_V1.md",
+    "projects/knowingmind_open_commons/release/LICENSE_DECISION_RECORD_V1.md",
+    "projects/knowingmind_open_commons/release/PUBLIC_SOURCE_MANIFEST_TEMPLATE_V1.json",
+    "projects/knowingmind_open_commons/release/RELEASE_GATES_V1.md",
+    "projects/knowingmind_open_commons/schemas/DATA_MODEL_V1.md",
+    "projects/knowingmind_open_commons/security/SECURITY_PRIVACY_V1.md"
+  ],
+  "excluded_classifications": [
+    "RESTRICTED",
+    "PROHIBITED",
+    "SHARED",
+    "UNKNOWN"
+  ],
+  "release_rule": "Only exact PUBLIC-classified source blobs may be imported from KnowingMindApp. Unknown or non-public classifications fail closed."
+}
