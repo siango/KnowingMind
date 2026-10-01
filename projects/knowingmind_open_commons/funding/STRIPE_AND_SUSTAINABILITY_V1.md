@@ -34,13 +34,21 @@ At minimum:
 - checkout.session.completed
 - checkout.session.async_payment_succeeded
 - checkout.session.async_payment_failed
+- refund.created, refund.updated, and refund.failed
+- charge.dispute.created, charge.dispute.updated, and charge.dispute.closed
 
 Rules:
 - verify Stripe signature before processing,
 - enforce idempotency,
 - record provider event ID,
 - fulfill/credit only when payment state is eligible,
-- never trust browser success redirect as payment authority.
+- never trust browser success redirect as payment authority,
+- deduplicate webhook delivery by provider event ID, then deduplicate every financial side effect by provider object ID and normalized state-transition key,
+- persist one unique adjustment for each refund/dispute transition that affects recognized support; event-delivery deduplication alone is not sufficient,
+- cap cumulative refund and dispute-loss reversals for a payment at the original credited amount, so overlapping refund/dispute events cannot reverse support or contribution points twice,
+- create a financial reversal only when a refund succeeds; pending, failed, or canceled refunds do not reverse recognized support,
+- place recognition on hold while a dispute is open; release the hold if won, and record an auditable reversal if lost,
+- apply partial refunds only to the refunded amount and calculate any contribution-points reversal deterministically under the recorded policy version.
 
 ## Secret policy
 
