@@ -1,0 +1,36 @@
+{
+  "schema": "KNOWINGMIND_OPEN_COMMONS_STATUS_V1",
+  "project_key": "KNOWINGMIND_OPEN_COMMONS",
+  "parent_project_id": "DHAMMA_GROUNDED_AI",
+  "source_repo": "siango/KnowingMindApp",
+  "source_folder": "projects/knowingmind_open_commons",
+  "source_state": "SOURCE_STRUCTURE_CREATED_UNVERIFIED",
+  "verification_state": "SOURCE_IMPORTED_UNVERIFIED",
+  "current_phase": "OC-0",
+  "verified_percent": null,
+  "first_unfinished_step": "OC-0 PUBLIC RELEASE RECONCILIATION: reconcile public docs with current authority; inventory and classify candidate public files; run secret/history/license audits; define a clean public-source manifest; verify a clean public build.",
+  "next_action": "Open a review PR for the complete source/governance scaffold, run CI and independent review, then execute OC-0 without changing repository visibility.",
+  "public_visibility_change_approved": false,
+  "stripe_live_approved": false,
+  "proposed_code_license": "Apache-2.0",
+  "proposed_documentation_license": "CC-BY-4.0",
+  "launch_locales": ["th", "en", "zh-Hans"],
+  "authority": {
+    "dhamma_project_truth": "POSTGRESQL_PGVECTOR",
+    "dhamma_readback": "Dhamma_Grounded_AI_MCP_v4",
+    "d1_project_truth": false
+  },
+  "phases": [
+    "OC-0_PUBLIC_RELEASE_RECONCILIATION",
+    "OC-1_CLEAN_PUBLIC_GITHUB",
+    "OC-2_OPEN_LICENSING",
+    "OC-3_I18N_TH_EN_ZH_HANS",
+    "OC-4_MEMBERSHIP",
+    "OC-5_CONTRIBUTION_POINTS",
+    "OC-6_FUNDING_EXPENSE_LEDGER",
+    "OC-7_PUBLIC_SUSTAINABILITY_DASHBOARD",
+    "OC-8_CONTRIBUTOR_WORKFLOW",
+    "OC-9_PUBLIC_ALPHA",
+    "OC-10_INTERFAITH_KNOWLEDGE_DOMAINS"
+  ]
+}

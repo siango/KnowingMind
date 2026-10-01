@@ -1,0 +1,77 @@
+name: Public CI
+on:
+  push:
+    branches: [main, oc0-public-import-v1]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  public-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Verify allowlist and public boundary
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib, re, subprocess
+          root=pathlib.Path(".")
+          manifest=json.loads((root/"PUBLIC_SOURCE_MANIFEST.json").read_text(encoding="utf-8"))
+          allow=json.loads((root/"PUBLIC_ALLOWLIST.json").read_text(encoding="utf-8"))
+          if manifest.get("imported_count") != len(manifest.get("imported_paths", [])):
+              raise SystemExit("manifest imported_count mismatch")
+          if set(manifest.get("excluded_classifications", [])) != {"RESTRICTED","PROHIBITED","SHARED","UNKNOWN"}:
+              raise SystemExit("fail-closed classification set mismatch")
+          tracked=set(subprocess.check_output(["git","ls-files"], text=True).splitlines())
+          allowed=set(allow.get("allowed_paths", []))
+          extra=sorted(tracked-allowed)
+          missing=sorted(allowed-tracked)
+          if extra:
+              raise SystemExit("unallowlisted tracked paths: "+", ".join(extra))
+          if missing:
+              raise SystemExit("allowlisted paths missing: "+", ".join(missing))
+          for line in subprocess.check_output(["git","ls-files","-s"], text=True).splitlines():
+              mode=line.split()[0]
+              if mode in {"120000","160000"}:
+                  raise SystemExit("symlink/submodule forbidden: "+line)
+          blocked={".env",".env.local",".env.production"}
+          blocked_suffix={".pem",".key",".p12",".pfx",".zip",".7z",".tar",".gz"}
+          patterns=[
+              re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+              re.compile(r"\bghp_[A-Za-z0-9]{20,}\b"),
+              re.compile(r"\bgithub_pat_[A-Za-z0-9_]{20,}\b"),
+              re.compile(r"\bAKIA[0-9A-Z]{16}\b"),
+          ]
+          text_ext={".md",".json",".yml",".yaml",".py",".js",".ts",".tsx",".jsx",".txt",".toml",".ini",".cfg",".sh"}
+          for p in sorted(tracked):
+              pp=pathlib.Path(p)
+              if pp.name in blocked or pp.suffix.lower() in blocked_suffix:
+                  raise SystemExit("blocked public file type: "+p)
+              if pp.suffix.lower()==".json":
+                  json.loads(pp.read_text(encoding="utf-8"))
+              if pp.suffix.lower() in text_ext or pp.name in {"LICENSE","NOTICE"}:
+                  data=pp.read_text(encoding="utf-8")
+                  for pat in patterns:
+                      if pat.search(data):
+                          raise SystemExit("potential secret material: "+p)
+          print(f"PUBLIC_BOUNDARY_PASS tracked={len(tracked)} imported={manifest['imported_count']}")
+          PY
+
+      - name: Public clean-checkout test
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f README.md
+          test -f CONTRIBUTING.md
+          test -f SECURITY.md
+          test -f PUBLIC_SOURCE_MANIFEST.json
+          python -m json.tool PUBLIC_SOURCE_MANIFEST.json >/dev/null
+          python -m json.tool PUBLIC_ALLOWLIST.json >/dev/null
+          echo PUBLIC_CLEAN_CHECKOUT_TEST_PASS
