@@ -1,0 +1,8 @@
+# KnowingMind public repository ownership
+* @siango
+
+/projects/knowingmind_open_commons/security/ @siango
+/projects/knowingmind_open_commons/release/ @siango
+/.github/workflows/ @siango
+/SECURITY.md @siango
+/GOVERNANCE.md @siango
