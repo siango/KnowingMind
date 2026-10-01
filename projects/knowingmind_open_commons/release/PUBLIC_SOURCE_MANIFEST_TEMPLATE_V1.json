@@ -1,0 +1,15 @@
+{
+  "schema": "KNOWINGMIND_PUBLIC_SOURCE_MANIFEST_V1",
+  "release_candidate": null,
+  "generated_from": "siango/KnowingMindApp",
+  "classification_values": ["PUBLIC","RESTRICTED","PROHIBITED","SHARED","UNKNOWN"],
+  "entries": [],
+  "release_rule": "Only PUBLIC entries may be copied into a public release candidate. UNKNOWN is fail-closed.",
+  "required_checks": [
+    "TREE_SECRET_SCAN",
+    "HISTORY_EXPOSURE_ASSESSMENT",
+    "THIRD_PARTY_RIGHTS_REVIEW",
+    "PUBLIC_DEPENDENCY_REVIEW",
+    "CLEAN_CLONE_BUILD_TEST"
+  ]
+}
