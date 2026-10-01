@@ -1,0 +1,18 @@
+{
+  "schema": "KNOWINGMIND_OPEN_COMMONS_PHASES_V1",
+  "project_key": "KNOWINGMIND_OPEN_COMMONS",
+  "authority_effect": "SOURCE_MANIFEST_ONLY_UNTIL_PROMOTED_AND_VERIFIED",
+  "phases": [
+    {"phase_key":"OC-0","name":"Public Release Reconciliation","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-1","name":"Clean Public GitHub","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-2","name":"Open Licensing","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-3","name":"TH EN zh-Hans Foundation","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-4","name":"Membership","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-5","name":"Contribution Points","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-6","name":"Funding and Expense Ledger","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-7","name":"Public Sustainability Dashboard","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-8","name":"Contributor Workflow","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-9","name":"Public Alpha","initial_state":"NOT_STARTED"},
+    {"phase_key":"OC-10","name":"Interfaith Knowledge Domains","initial_state":"NOT_STARTED"}
+  ]
+}
