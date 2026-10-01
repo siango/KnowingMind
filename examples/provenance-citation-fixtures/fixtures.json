@@ -1,0 +1,47 @@
+{
+  "schema": "KNOWINGMIND_PROVENANCE_CITATION_FIXTURE_V1",
+  "synthetic": true,
+  "note": "Invented examples only. No private evidence, user data, or copyrighted source text.",
+  "provenance": {
+    "id": "prov_0000",
+    "source_ref": "canon.chapter_004",
+    "source_snapshot": {
+      "ref": "public-canonical-text@sha256:aaaa0000",
+      "revision": "42"
+    },
+    "classified_as": "PUBLIC",
+    "derived_from": ["passage_004.12"],
+    "authority_rule": "SOURCE > MODEL",
+    "ai_cite_allowed": true,
+    "ai_is_canon": false
+  },
+  "citations": [
+    {
+      "citation_id": "cite_0001",
+      "provenance_id": "prov_0000",
+      "cited_in": "model_output.synthetic_run_0001",
+      "span": {
+        "start": 120,
+        "end": 168,
+        "char_offsets_are_synthetic": true
+      },
+      "excerpt": "<placeholder excerpt, not source text>",
+      "license_status": "synthetic_no_rights_claim",
+      "redistribution": "not_granted"
+    },
+    {
+      "citation_id": "cite_0002",
+      "provenance_id": "prov_0000",
+      "cited_in": "model_output.synthetic_run_0002",
+      "span": {
+        "start": 240,
+        "end": 280,
+        "char_offsets_are_synthetic": true
+      },
+      "excerpt": "<placeholder excerpt, not source text>",
+      "license_status": "synthetic_no_rights_claim",
+      "redistribution": "requires_explicit_consent"
+    }
+  ],
+  "public_render_rule": "Only PUBLIC-classified provenance with synthetic excerpts may be shown publicly."
+}
