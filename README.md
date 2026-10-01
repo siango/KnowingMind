@@ -32,6 +32,17 @@ python -m unittest discover -s examples/public-demo -p 'test_*.py'
 python examples/public-demo/app.py --port 8765
 ```
 
+## Community, acknowledgements, and transparency
+
+Thank you to everyone who contributes time, knowledge, review, infrastructure, and financial support.
+
+- Contributors: `CONTRIBUTORS.md`
+- Supporters and public-recognition policy: `SUPPORTERS.md`
+- Transparency and financial-reporting principles: `TRANSPARENCY.md`
+- Governance: `GOVERNANCE.md`
+
+Supporter names are not published by default. Public recognition requires explicit opt-in, and no payment or billing details are published.
+
 ## Contributing
 
 Issues and Pull Requests are welcome. Good first contributions include
