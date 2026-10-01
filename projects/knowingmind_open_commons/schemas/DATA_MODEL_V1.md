@@ -55,13 +55,21 @@ Provider-normalized payment events.
 Suggested fields:
 - provider_event_id
 - provider
+- provider_object_id
+- payment_ref
 - event_type
+- status_transition_key
 - payment_state
 - currency
 - gross_amount
 - occurred_at
 - processed_at
 - payload_hash
+
+### funding.payment_adjustments
+Append-only, auditable refund/dispute effects linked to the original payment.
+
+Required uniqueness: `(provider, provider_object_id, status_transition_key)` so separate webhook event IDs cannot apply the same business effect twice. Track adjustment amount/currency and policy version; cumulative reversals for a payment must never exceed its original credited amount.
 
 ### funding.contributions
 Normalized financial-support record.
@@ -108,4 +116,4 @@ Payment/provider IDs are not Canon identifiers.
 
 ## Idempotency
 
-External events such as Stripe webhooks and GitHub contribution sync must store stable external IDs or hashes sufficient to prevent duplicate effects.
+Stripe ingress deduplicates by `(provider, provider_event_id)`. Refund/dispute ledger effects also use `(provider, provider_object_id, status_transition_key)` because one Stripe object can emit multiple event IDs for a single terminal outcome. Enforce a cumulative reversal cap at the original credited payment amount. GitHub contribution sync also stores stable external IDs or hashes sufficient to prevent duplicate effects.
