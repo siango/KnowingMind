@@ -1,14 +1,20 @@
 {
   "schema": "KNOWINGMIND_PUBLIC_SOURCE_MANIFEST_V1",
   "source_repository": "siango/KnowingMindApp",
-  "source_manifest_path": "projects/knowingmind_open_commons/release/PUBLIC_SOURCE_MANIFEST_CANDIDATE_V1.json",
-  "source_manifest_blob_sha": "7d32cb9b32654d37343560a93ffe6b9830491363",
+  "source_classification_policy": "FAIL_CLOSED_PATH_LEVEL_BASELINE_V1",
   "classified_snapshot": {
-    "ref": "feat/knowingmind-open-commons-roadmap-v1",
-    "commit": "304b3fd840df7362cda2e1274405283f115c3c77",
-    "tree": "e60a788a90086e9d68923fbc69cb9f59587e9ccc"
+    "ref": "main",
+    "commit": "d929e30dfbb36335127cd489e826219f5eea2417",
+    "tree": "a176da0c5190de57e51b863f67a51db041da922f"
   },
-  "imported_count": 24,
+  "classified_counts": {
+    "PUBLIC": 25,
+    "RESTRICTED": 160,
+    "UNKNOWN": 143,
+    "SHARED": 65,
+    "PROHIBITED": 22
+  },
+  "imported_count": 25,
   "imported_paths": [
     "CODE_OF_CONDUCT.md",
     "CONTRIBUTING.md",
@@ -30,6 +36,7 @@
     "projects/knowingmind_open_commons/operations/FASTAPI_GITHUB_STRIPE_INTEGRATION_V1.md",
     "projects/knowingmind_open_commons/release/GITHUB_PUBLICATION_V1.md",
     "projects/knowingmind_open_commons/release/LICENSE_DECISION_RECORD_V1.md",
+    "projects/knowingmind_open_commons/release/OC0_INVENTORY_CLASSIFICATION_BASELINE_V1.md",
     "projects/knowingmind_open_commons/release/PUBLIC_SOURCE_MANIFEST_TEMPLATE_V1.json",
     "projects/knowingmind_open_commons/release/RELEASE_GATES_V1.md",
     "projects/knowingmind_open_commons/schemas/DATA_MODEL_V1.md",
@@ -41,5 +48,5 @@
     "SHARED",
     "UNKNOWN"
   ],
-  "release_rule": "Only exact PUBLIC-classified source blobs may be imported from KnowingMindApp. Unknown or non-public classifications fail closed."
+  "release_rule": "Only exact PUBLIC-classified source files may be imported from KnowingMindApp. Unknown or non-public classifications fail closed."
 }
