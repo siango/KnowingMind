@@ -56,7 +56,7 @@ GitHub Actions:
 
 ### Public
 - public profile fields with consent,
-- accepted contribution records,
+- accepted contribution records only through a consent-filtered public projection or anonymized aggregate; suppress user-linked records when consent is absent or revoked,
 - aggregate project/funding statistics.
 
 ### Private
