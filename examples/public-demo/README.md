@@ -10,7 +10,7 @@ Run:
 
 ```bash
 python examples/public-demo/app.py --check
-python -m unittest discover -s examples/public-demo -p 'test_*.py'
+python -m unittest examples/public-demo/test_app.py
 python examples/public-demo/app.py --port 8765
 ```
 
