@@ -9,7 +9,7 @@ KnowingMind is the public collaboration layer for Dhamma Grounded AI.
 - SOURCE > MODEL.
 - AI is not Canon.
 - AI is not a spiritual authority.
-- Canon, Library, Practice, and AI Analysis should remain distinguishable.
+- Canon, Library, Practice, and AI Analysis must remain distinguishable.
 - Automated tests may verify software behavior, not Buddhist Canon truth.
 - Unsupported quotations must not be presented as authentic.
 - AI must not issue spiritual-attainment certification.
