@@ -1,0 +1,43 @@
+{
+  "schema": "KNOWINGMIND_SYNTHETIC_PROVENANCE_V1",
+  "note": "All records are invented. They demonstrate the PUBLIC shape of provenance metadata: what a claim is derived from and where to verify it. They must not carry private evidence, user data, or secret paths.",
+  "authority_rule": "SOURCE > MODEL",
+  "records": [
+    {
+      "provenance_id": "SYN-PROV-0001",
+      "statement_id": "SYN-STATE-0001",
+      "derived_from": [
+        {
+          "source_id": "SYN-SRC-0001",
+          "locator": "chapters/chapter-01#para-3",
+          "retrieval_state": "verified"
+        }
+      ],
+      "locator_root": "chapters/chapter-01",
+      "classification": "PUBLIC",
+      "ai_generated": false,
+      "review_state": "publicly_reviewable"
+    },
+    {
+      "provenance_id": "SYN-PROV-0002",
+      "statement_id": "SYN-STATE-0002",
+      "derived_from": [
+        {
+          "source_id": "SYN-SRC-0001",
+          "locator": "chapters/chapter-01#para-7",
+          "retrieval_state": "verified"
+        },
+        {
+          "source_id": "SYN-SRC-0002",
+          "locator": "notes/notes-01#para-1",
+          "retrieval_state": "verified"
+        }
+      ],
+      "locator_root": "chapters/chapter-01",
+      "classification": "PUBLIC",
+      "ai_generated": true,
+      "ai_note": "Model-assisted; the underlying source remains the authority, not the model output.",
+      "review_state": "pending_review"
+    }
+  ]
+}

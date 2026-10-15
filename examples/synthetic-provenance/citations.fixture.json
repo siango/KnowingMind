@@ -1,0 +1,47 @@
+{
+  "schema": "KNOWINGMIND_SYNTHETIC_CITATION_V1",
+  "note": "All records are invented. A citation names a source and a stable locator, never a private path, endpoint, or credential. Every citation must resolve to a source in the source registry.",
+  "citations": [
+    {
+      "citation_id": "SYN-CITE-0001",
+      "display": "Synthetic Chapter 1, para 3",
+      "references": [
+        {
+          "source_id": "SYN-SRC-0001",
+          "locator": "chapters/chapter-01#para-3",
+          "locator_kind": "section_anchor"
+        }
+      ],
+      "retrieval_state": "verified"
+    },
+    {
+      "citation_id": "SYN-CITE-0002",
+      "display": "Synthetic Notes, para 1",
+      "references": [
+        {
+          "source_id": "SYN-SRC-0002",
+          "locator": "notes/notes-01#para-1",
+          "locator_kind": "section_anchor"
+        }
+      ],
+      "retrieval_state": "verified"
+    },
+    {
+      "citation_id": "SYN-CITE-0003",
+      "display": "Chapter 1 and Notes, combined",
+      "references": [
+        {
+          "source_id": "SYN-SRC-0001",
+          "locator": "chapters/chapter-01#para-3",
+          "locator_kind": "section_anchor"
+        },
+        {
+          "source_id": "SYN-SRC-0002",
+          "locator": "notes/notes-01#para-1",
+          "locator_kind": "section_anchor"
+        }
+      ],
+      "retrieval_state": "verified"
+    }
+  ]
+}
