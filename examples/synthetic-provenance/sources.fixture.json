@@ -1,0 +1,20 @@
+[
+  {
+    "source_id": "SYN-SRC-0001",
+    "title": "Synthetic Chapter 1 (invented, no real content)",
+    "kind": "public_document",
+    "locator_root": "chapters/chapter-01",
+    "license": "CC0-1.0 (synthetic)",
+    "classification": "PUBLIC",
+    "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  {
+    "source_id": "SYN-SRC-0002",
+    "title": "Synthetic Notes (invented, no real content)",
+    "kind": "public_document",
+    "locator_root": "notes/notes-01",
+    "license": "CC0-1.0 (synthetic)",
+    "classification": "PUBLIC",
+    "content_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  }
+]
